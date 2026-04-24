@@ -1,0 +1,25 @@
+# Ultralytics YOLO dataset config for blood cell detection.
+#
+# Expected layout (relative to `path`):
+#   <path>/images/train/*.jpg|png|...
+#   <path>/images/val/*.jpg|png|...
+#   <path>/labels/train/*.txt   # one .txt per image, same stem
+#   <path>/labels/val/*.txt
+#
+# Each label line: <class_id> <cx> <cy> <w> <h>   (all normalised to [0, 1])
+#
+# Train with:
+#   yolo detect train data=data/blood_cells.yaml model=yolov8n.pt epochs=100 imgsz=640
+
+# Dataset root. Use an absolute path, or "." if this YAML sits at the dataset root.
+path: ./dataset
+
+train: images/train
+val: images/val
+# test: images/test   # optional held-out split
+
+# Class names. Order defines the integer class_id used in label files.
+names:
+  0: RBC
+  1: WBC
+  2: Platelets
